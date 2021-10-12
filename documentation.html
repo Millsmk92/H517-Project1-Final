@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+ 	<head>
+ 		<meta charset="utf-8">
+ 		<title>1854 London Cholera Outbreak</title>
+ 		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+		<style>
+			html {
+				font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+				-webkit-text-size-adjust: 100%;
+			}
+			body {
+				padding: 0;
+				margin: 0;
+				font-size: 16px;
+			}
+			h1 {
+				margin: 0;
+				color: #fff;
+				background: #000;
+				text-align: center;
+				font-size: 30px;
+				padding: 20px;
+			}
+			ul {
+				list-style: none;
+				display: grid;
+				grid-template-columns: repeat(3, 200px);
+				grid-gap: 40px;
+				justify-content: center;
+				margin: 0;
+				padding: 40px 0;
+			}
+			ul a {
+				display: block;
+				color: #fff;
+				background: #000;
+				padding: 10px;
+				text-decoration: none;
+				text-align: center;
+				font-size: 14px;
+			}
+			ul a:hover {
+				font-weight: 700;
+				opacity: .75;
+			}
+			h2 {
+				text-align: center;
+				font-size: 25px;
+				margin: 20px 0;
+			}
+         .axis path, .axis line {
+			fill: none;
+			stroke: black;
+			shape-rendering: crispEdges;
+		   }
+		   .tick text {
+			fill: black;
+			font-size: 11px;
+		   }
+			.chart {
+				width: 600px;
+				height: 600px;
+				margin: 0 auto;
+				display: block;
+			}
+         /*.chartLine {
+				width: 50%;
+            float:right;
+            width:50%;
+				height: 600px;
+            float:right;
+				margin: 0 auto;
+				display: block;
+			}*/
+         rect {
+			stroke: white;
+         }
+         circle {
+			fill: #dfb8ff;
+		   }
+         .grid-container {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            grid-gap:20px;
+         }
+			.footer {
+				font-size: 12px;
+				font-style: italic;
+				text-align: center;
+				padding: 40px;
+			}
+		</style>
+ 	</head>
+ 	<body>
+      <div class="header">
+			<h1>1854 London Cholera Outbreak</h1>
+			<ul>
+				<li>
+					<a href="index.html">Visualization</a>
+				</li>
+				<li>
+					<a href="documentation.html">Documentation</a>
+				</li>
+				<li>
+					<a href="video.html">Video</a>
+				</li>
+			</ul>
+	  </div>
+	 <div class='body'>
+		 <div class='doc1'>
+		<h2>My Design Process</h2>
+			<p>For my design process I initially started by watching a few youtube videos on visualizations done specifically with this dataset.
+			 There proved to be a lot of videos on youtube that were helpful in helping me to conceptualize some of the different visualization choices I could make.
+			 Once I felt like I had a good understanding of the project, I decided to sketch a rough idea of how i wanted the page to look.
+			 This seemed like a logical first step considering im an HCI grad student and rapid prototyping is a cornerstone of UX design.
+		 	</p>
+			<img src='roughDraft.jpg' height='200'/>
+			<p>My initial design was pretty simple and featured a top bar navigation element with the visualizations being div'ed out side by side as well as stacking divs
+				on top of each other so that the visualizations would all appear and be able to be interacted with, without having to scroll the page.
+			</p>
+
+			<p>After sketching I set up a super simple html layout and css styling that I intended to polish up at a later time,
+				but unfortunatley ran out of time because I started on the project late.
+			</p>
+		 </div>
+		 <div class='doc2'>
+			 <h2>Design Choices</h2>
+			 <p>My design choices for this project, as stated earlier, mainly consisted of making sure that A:all visualizations would be displayed on the same page
+				 without having the need to scroll to interact, and B:That per the project guidelines, I made color choices that would be colorblind safe to increase the accessibility of my visualizations.
+				 In order to make sure my color chocies were appropriate for colorblindness I used colorbrewer2.org to only show me colorblind safe.
+				 The colors chosen through colorbrewer were used on the death dots on the map as well as for the the total deaths per day dots that appear in the timeline graph in part to make them easy for individuals with colorblindess to be able
+				 to easily see each dot. Color for the dots was also intended to convey that those elements were interactive. When the dots were interacted with on the timeline, the dots on the map change to red and grow by a few pixels to make them identifiable.
+			</p>
+			<img src='londonMap.jpg' height='200'/>
+			<img src='timeLine.jpg' height='200'/>
+			<img src='Colorblind.jpg' height='200'/>
+			<p>I decided to go with a line chart even though I had initially sketched a bar chart and started coding a bar chart because I found a line chart tutorial that I was able to understand faster than going the bar graph route.
+			</p>
+			<h2></h2>Questions and Discoveries: 
+			<p>Even though I didnt make it very far in the project deliverables, I think its fair to say that the culprit for the cholera outbreak was a single pump on broad street given the distrubiton of deaths around the central pump on the map.
+			This, however, is already a given considering the history we learned about this event during the in class presentation. Additionaly, from the videos I watched on other peoples work it was clear that very young children and the elderly had a much higher death percentage (55% combined, 25& and 30% respectively) than those aged 11-80.
+			This information makes a lot of sense considering what I know about how modern day diseases impact the overall population, usually the super young and elderly are at higher risk. This could possibly be due to weaker immune systems.
+			Based on the data, I assumed that the pump was shut off on or near Sep 1st given the sharp drop in deaths per day, however, in reality the pump wasnt shut off until Sept 7th when deaths were already declining.
+			I also assumed that the persons sex would have no impact on the death rate and based on the dataset this appears to be true as its a pretty even 50-50 distribution between male and female.
+			</p>
+			<p>
+			I verififed death numbers by age and sex by using excel and COUNTIF functions to cycle through age and sex information.
+			</p>
+			<img src='age&sexInfo.jpg' height='200'/>
+			<li>References:
+			</li>
+			<li>https://coder-coder.com/display-divs-side-by-side/</li>
+			<li>https://developer.mozilla.org/en-US/docs/Web/JavaScript</li>
+			<li>https://developer.mozilla.org/en-US/docs/Learn/CSS</li>
+			<li>https://colorbrewer2.org/#type=diverging&scheme=PuOr&n=5</li>
+			<li>https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0</li>
+			<li>https://github.com/d3/d3/blob/main/API.md</li>
+			<li>https://observablehq.com/@d3/d3-scalelinear</li>
+			<li>https://www.youtube.com/watch?v=emIHKsXdpuY</li>
+			<li>https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak</li>
+		 </div>
+	 </div>
+
+	 <div class="footer">
+			<p>Created by Matthew Mills, INFO H517</p>
+      </div>
